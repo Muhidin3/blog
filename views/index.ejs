@@ -1,0 +1,29 @@
+<%- include('header')-%>
+
+<style>
+    .blog{
+        margin: 50px 50px 50px 100px;
+    }
+    .title{
+        margin-bottom: 20px;
+        font-size: 35px;
+    }
+</style>
+
+<%for (let i = 0; i < title.length; i++) {%>
+    <div class="blog">
+        <div class="title"><%=title[i]%></div>
+        <div class="content">
+            <%= content[i].slice(0,100)%> 
+            <span class="readme">
+                <a href=<%=title[i].replace(' ','-')%>>ReadMe</a>
+            </span>   
+        </div>
+        
+    </div>
+    
+<%}%>
+
+
+
+<%- include('footer')-%>

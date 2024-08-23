@@ -1,0 +1,41 @@
+<%- include('header')-%>
+
+
+<style>
+    .compose{
+        padding-left: 100px;
+    }
+    form{
+        padding: 50px 0 50px 100px;
+    }
+    .title{
+        border-radius: 10px;
+        font-size: 30px;
+    }
+    .content{
+        width: 700px;
+        height: 500px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    button{
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+</style>
+
+<h1 class="compose">Compose</h1>
+
+<form action="/compose" method="post">
+    <label for="title">Title: </label> <br>
+    <input type="text" class="title" name="title"><br><br><br>
+
+    <label for="post">Post:</label><br>
+    <!-- <input type="text" class="content" name="content"> -->
+    <textarea name="content" class="content"></textarea><br>
+    <button type="submit">Submit</button>
+</form>
+
+
+<%- include('footer')-%>
