@@ -69,6 +69,8 @@ function readme() {
 }
 readme()
 
-
+app.get('/home',(req,res)=>{
+    res.send('mmmmmmmmmmmmmmmmmmmmmmmmmmmm')
+})
 
 app.listen(3000,()=> console.log('server started on 3000'))
