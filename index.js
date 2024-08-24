@@ -70,4 +70,4 @@ function readme() {
 readme()
 
 
-app.listen(3000,()=> console.log('server started on 3000'))
+app.listen(3000|| process.env.PORT,()=> console.log('server started on 3000'))
