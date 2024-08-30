@@ -24,24 +24,27 @@ const blog1 = new blog({
 })
 // blog.insertMany([blog1])
 
-async function blogsee() {
-    const a = await blog.find()
-    console.log(a[0].title);
-}
-blogsee()
-console.log('aseeeeeeee');
-
-let titles = ['a','b','c']
-let contents = ['aa','bb',"cc"]
 app.get('/',(req,res)=>{
-    res.render('index',{a:titles,c:contents})
+    async function blogsee() {
+        let blogs = await blog.find()
+        
+        res.render('index',{a:blogs})
+    }
+    blogsee()
 })
+
 app.get('/compose',(req,res)=>{
     res.render('compose')
 })
 app.post('/compose',(req,res)=>{
-    titles.push(req.body.title)
-    titles.push(req.body.content)
+    const blog1 = new blog({
+        title: req.body.title,
+        content:req.body.content
+    })
+    blog.insertMany([blog1])
+    
+    
+    
     res.redirect('/')
     
 })

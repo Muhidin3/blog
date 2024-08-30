@@ -22,8 +22,9 @@
         <h1> Here are the blogs</h1><br>
 
         <% for( let i = 0; i < a.length; i++ ) { %>
-            <h1><%-a[i]%></h1>
-            <h3 class="content"><%- c[i] %></h3>
+
+            <h1><%-a[i].title%></h1>
+            <h3 class="content"><%- a[i].content %></h3>
         
         <% } %>
         
