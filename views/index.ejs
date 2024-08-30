@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .blogs{
+        border: 1px solid black;
+        position: relative;
+        left: 100px;
+    }
+    .content{
+        position: relative;
+        left: 30px;
+    }
+</style>
+<body>
+    <header><h1>Blog Website</h1></header>
+    <div class="blogs">
+        <h1> Here are the blogs</h1><br>
+
+        <% for( let i = 0; i < a.length; i++ ) { %>
+            <h1><%-a[i]%></h1>
+            <h3 class="content"><%- c[i] %></h3>
+        
+        <% } %>
+        
+            <a href="/compose">compose</a>
+    </div>
+</body>
+</html>
