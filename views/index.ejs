@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css.css">
 </head>
-<style>
-    .blogs{
-        border: 1px solid black;
-        position: relative;
-        left: 100px;
-    }
-    .content{
-        position: relative;
-        left: 30px;
-    }
-</style>
 <body>
-    <header><h1>Blog Website</h1></header>
+    <script src="js.js"></script>
+    <!-- <header><h1>Blog Website</h1></header> -->
+    <%- include('header') %>
     <div class="blogs">
         <h1> Here are the blogs</h1><br>
 
         <% for( let i = 0; i < a.length; i++ ) { %>
+            <div class="blog">
+                <h1 class="title"><%-a[i].title%></h1>
+                <h3 class="content">
+                    <%- a[i].content.slice(0,100) %> 
+                    <a href=<%-a[i].title.replace(' ','_')  %> style="font-size: 15px;">Read More</a>
+                </h3>
 
-            <h1><%-a[i].title%></h1>
-            <h3 class="content"><%- a[i].content %></h3>
+            </div>
         
         <% } %>
         
-            <a href="/compose">compose</a>
+            <div class="compose">
+                <a href="/compose">compose</a>
+            </div>
     </div>
 </body>
 </html>

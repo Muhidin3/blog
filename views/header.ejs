@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/public/css.css"> -->
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>MU BLOGS</h1>
+            <p class="tooglebtn" id="btn" ><button>Show</button></p>
+            <ul class="navlink">
+                <li><a href="">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+            
+        </div>
+
+    </header>
+
+     <script> 
+     document.querySelector('#btn').addEventListener('click',(e)=>{
+
+        if (document.querySelector('.navlink').style.display == 'block') {
+            document.querySelector('.navlink').style.display = 'none'
+        }
+        else{
+            document.querySelector('.navlink').style.display = 'block'
+        }
+        
+        
+     })  
+        
+      
+     </script>
+</body>
+</html>

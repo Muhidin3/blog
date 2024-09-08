@@ -8,6 +8,7 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.static('public'))
 app.listen(3000)
 
 
@@ -17,12 +18,6 @@ const blogSchema = new mongoose.Schema({
 })
 
 const blog = mongoose.model('blogs',blogSchema)
-
-const blog1 = new blog({
-    title: 'd',
-    content:'dd'
-})
-// blog.insertMany([blog1])
 
 app.get('/',(req,res)=>{
     async function blogsee() {
@@ -39,7 +34,7 @@ app.get('/compose',(req,res)=>{
 app.post('/compose',(req,res)=>{
     const blog1 = new blog({
         title: req.body.title,
-        content:req.body.content
+        content:req.body.content,
     })
     blog.insertMany([blog1])
     
@@ -49,37 +44,20 @@ app.post('/compose',(req,res)=>{
     
 })
 
+app.get('/:l',async (req,res)=>{
 
-
-// const fruitSchema = new mongoose.Schema ({
-//     name: String,
-//     rating: Number,
-//     review:String
-// });
-// const Fruit = mongoose.model("Fruit", fruitSchema)
-// const apple = new Fruit ({
-//     name: "apple",
-//     rating: 4,
-//     review:"good"
-// });
-
-// const banana= new  Fruit({
-//     name:'banana',
-//     rating:5,
-//     review:'ausome'
-// })
-
-// async function a(){
-//     try {
-//         const docs = await Fruit.find().limit(2)
-//         // console.log(docs)      
+    let link = req.params.l
+    const eblog = await blog.find({title: link.replace('_',' ')})
+    try {
+        await res.render('eachblog',{atitle:eblog[0].title,acontent:eblog[0].content}) 
         
-//     } catch (error) {
-//         console.log(error);
+    } catch (error) {
+        // console.error('that error')
         
-//     }finally{
-//         mongoose.connection.close()
-//     }
+    }
     
-// }
-// a()
+
+    // console.log(eblog[0].title);
+    
+})
+
