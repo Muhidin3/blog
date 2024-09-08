@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost:27017/blogDB")
+mongoose.connect("mongodb+srv://muhidinshemsu3:hpInIu1U0hHJPuAS@cluster0.cd40j.mongodb.net/blogDB")
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -61,3 +61,8 @@ app.get('/:l',async (req,res)=>{
     
 })
 
+//mongodb atlas user name muhidinshemsu3
+// password hpInIu1U0hHJPuAS
+
+
+//mongodb+srv://muhidinshemsu3:hpInIu1U0hHJPuAS@cluster0.cd40j.mongodb.net/
